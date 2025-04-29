@@ -1,5 +1,5 @@
-#Tetris
+# Tetris
 
-##Overview
+## Overview
 
 A tetris game made on C++
