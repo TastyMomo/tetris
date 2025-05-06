@@ -1,38 +1,41 @@
+#include "Pieces.h"
+
+// Pieces
 char mPieces [7/*kind*/][4/*rotation*/][5/*horizontal blocks*/][5/*vertical blocks*/]=
 {
-    //Square
+    // Square
     {
         {
-            {0,0,0,0,0},
-            {0,0,0,0,0},
-            {0,0,2,1,0},
-            {0,0,1,1,0},
-            {0,0,0,0,0}
+            {0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0},
+            {0, 0, 2, 1, 0},
+            {0, 0, 1, 1, 0},
+            {0, 0, 0, 0, 0}
         }
         {
-            {0,0,0,0,0},
-            {0,0,0,0,0},
-            {0,0,2,1,0},
-            {0,0,1,1,0},
-            {0,0,0,0,0}
+            {0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0},
+            {0, 0, 2, 1, 0},
+            {0, 0, 1, 1, 0},
+            {0, 0, 0, 0, 0}
         }
         {
-            {0,0,0,0,0},
-            {0,0,0,0,0},
-            {0,0,2,1,0},
-            {0,0,1,1,0},
-            {0,0,0,0,0}
+            {0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0},
+            {0, 0, 2, 1, 0},
+            {0, 0, 1, 1, 0},
+            {0, 0, 0, 0, 0}
         }
         {
-            {0,0,0,0,0},
-            {0,0,0,0,0},
-            {0,0,2,1,0},
-            {0,0,1,1,0},
-            {0,0,0,0,0}
+            {0, 0, 0, 0, 0},
+            {0, 0, 0, 0, 0},
+            {0, 0, 2, 1, 0},
+            {0, 0, 1, 1, 0},
+            {0, 0, 0, 0, 0}
         }
     }
 
-    //I
+    // I
     {
         {
             {0, 0, 0, 0, 0},
@@ -225,4 +228,84 @@ char mPieces [7/*kind*/][4/*rotation*/][5/*horizontal blocks*/][5/*vertical bloc
         }
     }
 
+}
+
+// Intial Position
+int mPiecesInitialPosition [7/*kind*/][4/*rotation*/][2/*position*/]=
+{
+    // Square
+    {
+        {-2, -3},
+        {-2, -3},
+        {-2, -3},
+        {-2, -3}
+    }
+
+    // I
+    {
+        {-2, -2},
+        {-2, -3},
+        {-2, -2},
+        {-2, -3}
+    }
+
+    // L
+    {
+        {-2, -3},
+        {-2, -3},
+        {-2, -3},
+        {-2, -2}
+    }
+
+    // L Mirrored
+    {
+        {-2, -3},
+        {-2, -2},
+        {-2, -3},
+        {-2, -3}
+    }
+
+    // N
+    {
+        {-2, -3},
+        {-2, -3},
+        {-2, -3},
+        {-2, -2}
+    }
+
+    // N Mirrored
+    {
+        {-2, -3},
+        {-2, -3},
+        {-2, -3},
+        {-2, -2}
+    }
+
+    // T
+    {
+        {-2, -3},
+        {-2, -3},
+        {-2, -3},
+        {-2, -2}
+    }
+}
+
+
+
+// Return the type of block (O = No block, 1 = Normal block, 2 = Pivot block)
+int Pieces::GetBlockType (int pPiece, int pRotation, int pX, int pY)
+{
+    return mPieces [pPiece][pRotation][pX][pY];
+}
+
+// Returns the horizontal displacement of piece that has to be applied to create it in correct position
+int Pieces::GetXInitialPosition (int pPiece, int pRotation)
+{
+    return mPiecesInitialPosition [pPiece][pRotation][0];
+}
+
+// Returns the verticL displacement of piece that has to be applied to create it in correct position
+int Pieces::GetYInitialPosition (int pPiece, int pRotation)
+{
+    return mPiecesInitialPosition [pPiece][pRotation][1];
 }
